@@ -4,6 +4,7 @@ const vm = new Vue ({
     return {
       baseUrl: 'http://localhost:3000', // API url
       searchTerm: 'Hello World', // Default search term
+      searchAuthor: 'Anyone',
       searchDebounce: null, // Timeout for search bar debounce
       searchResults: [], // Displayed search results
       numHits: null, // Total search results found
@@ -28,7 +29,7 @@ const vm = new Vue ({
     },
     /** Call API to search for inputted term */
     async search () {
-      const response = await axios.get(`${this.baseUrl}/search`, { params: { term: this.searchTerm, offset: this.searchOffset } })
+      const response = await axios.get(`${this.baseUrl}/search`, { params: { term: this.searchTerm, author: this.searchAuthor, offset: this.searchOffset } })
       this.numHits = response.data.hits.total
       return response.data.hits.hits
     },

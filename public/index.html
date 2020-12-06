@@ -17,9 +17,16 @@
     <div class="mui-panel">
       <div class="mui-textfield">
         <input v-model="searchTerm" type="text" v-on:keyup="onSearchInput()">
-        <label>Search</label>
+        <label>Term</label>
+      </div>
+      <div class="mui-textfield">
+        <input v-model="searchAuthor" type="text" v-on:keyup="onSearchInput()">
+        <label>Author</label>
       </div>
     </div>
+
+
+  
 
     <!-- Search Metadata Card -->
     <div class="mui-panel">
